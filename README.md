@@ -10,5 +10,6 @@
 
 - [Git Book](http://git-scm.com/book/pl/v1/Pierwsze-kroki-Wprowadzenie-do-kontroli-wersji)
 
+## Do realizacji
 
-KJ
+[Wymagania na aplikację](https://github.com/yuppyavd/szkolenie1/wiki/Wymagania)
