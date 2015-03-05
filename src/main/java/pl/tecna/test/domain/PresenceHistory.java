@@ -15,11 +15,7 @@ public class PresenceHistory {
 	@Id
 	@GeneratedValue
 	private Long Id;
-	
-	@ManyToOne
-	@JoinColumn(name="Child_Id")
-	private Child Child;
-	
+
 	@ManyToOne
 	@JoinColumn(name="Activity_Id")
 	private Activity Activity;
@@ -29,14 +25,6 @@ public class PresenceHistory {
 
 	public Long getId() {
 		return Id;
-	}
-
-	public Child getChild() {
-		return Child;
-	}
-
-	public void setChild(Child child) {
-		Child = child;
 	}
 
 	public Activity getActivity() {

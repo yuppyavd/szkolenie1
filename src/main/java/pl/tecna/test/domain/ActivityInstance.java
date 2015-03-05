@@ -1,13 +1,18 @@
 package pl.tecna.test.domain;
 
 import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class ActivityInstance {
@@ -21,10 +26,12 @@ public class ActivityInstance {
 	private Activity Activity;
 	
 	@Column
-	private String WeekDay;
+	@Enumerated(EnumType.STRING)
+	private enumDay WeekDay;
 	
 	@Column
-	private Time Hour;
+	@Temporal(TemporalType.TIME)
+	private Date Hour;
 
 	public Long getId() {
 		return Id;
@@ -38,19 +45,19 @@ public class ActivityInstance {
 		Activity = activity;
 	}
 
-	public String getWeekDay() {
+	public enumDay getWeekDay() {
 		return WeekDay;
 	}
 
-	public void setWeekDay(String weekDay) {
+	public void setWeekDay(enumDay weekDay) {
 		WeekDay = weekDay;
 	}
 
-	public Time getHour() {
+	public Date getHour() {
 		return Hour;
 	}
 
-	public void setHour(Time hour) {
+	public void setHour(Date hour) {
 		Hour = hour;
 	}
 
