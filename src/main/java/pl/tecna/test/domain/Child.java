@@ -12,33 +12,33 @@ public class Child {
 	
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@Column
-	private String Name;
+	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name="Group")
-	private Group Group;
+	@JoinColumn(name="group")
+	private Group group;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public Group getGroup() {
-		return Group;
+		return group;
 	}
 
 	public void setGroup(Group group) {
-		Group = group;
+		this.group = group;
 	}
 	
 }

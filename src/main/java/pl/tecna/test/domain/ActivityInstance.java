@@ -19,46 +19,46 @@ public class ActivityInstance {
 	
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name="Activity_Id")
-	private Activity Activity;
+	private Activity activity;
 	
 	@Column
 	@Enumerated(EnumType.STRING)
-	private enumDay WeekDay;
+	private EnumDay weekDay;
 	
 	@Column
 	@Temporal(TemporalType.TIME)
-	private Date Hour;
+	private Date hour;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public Activity getActivity() {
-		return Activity;
+		return activity;
 	}
 
 	public void setActivity(Activity activity) {
-		Activity = activity;
+		this.activity = activity;
 	}
 
-	public enumDay getWeekDay() {
-		return WeekDay;
+	public EnumDay getWeekDay() {
+		return weekDay;
 	}
 
-	public void setWeekDay(enumDay weekDay) {
-		WeekDay = weekDay;
+	public void setWeekDay(EnumDay weekDay) {
+		this.weekDay = weekDay;
 	}
 
 	public Date getHour() {
-		return Hour;
+		return hour;
 	}
 
 	public void setHour(Date hour) {
-		Hour = hour;
+		this.hour = hour;
 	}
 
 }

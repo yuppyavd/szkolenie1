@@ -12,33 +12,45 @@ public class PresenceChildHistory {
 	
 	@Id
 	@GeneratedValue
-	private Long Id;
-	
-	@Column
-	private Child Child_Id;
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="PresenceHistory_Id")
-	private PresenceHistory PresenceHistory_Id;
+	@JoinColumn(name="child")
+	private Child child;
+	
+	@ManyToOne
+	@JoinColumn(name="presenceHistory")
+	private PresenceHistory presenceHistory;
+	
+	@Column
+	private Boolean isPresent;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
-	public Child getChild_Id() {
-		return Child_Id;
+	public Child getChild() {
+		return child;
 	}
 
-	public void setChild_Id(Child child_Id) {
-		Child_Id = child_Id;
+	public void setChild(Child child) {
+		this.child = child;
 	}
 
-	public PresenceHistory getPresenceHistory_Id() {
-		return PresenceHistory_Id;
+	public PresenceHistory getPresenceHistory() {
+		return presenceHistory;
 	}
 
-	public void setPresenceHistory_Id(PresenceHistory presenceHistory_Id) {
-		PresenceHistory_Id = presenceHistory_Id;
+	public void setPresenceHistory(PresenceHistory presenceHistory) {
+		this.presenceHistory = presenceHistory;
+	}
+
+	public Boolean getIsPresent() {
+		return isPresent;
+	}
+
+	public void setIsPresent(Boolean isPresent) {
+		this.isPresent = isPresent;
 	}
 
 }

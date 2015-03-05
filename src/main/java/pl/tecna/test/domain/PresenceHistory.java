@@ -14,32 +14,32 @@ public class PresenceHistory {
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name="Activity_Id")
-	private Activity Activity;
+	@JoinColumn(name="activity")
+	private Activity activity;
 	
 	@Column
-	private Date PresenceDate;
-
+	private Date presenceDate;
+	
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public Activity getActivity() {
-		return Activity;
+		return activity;
 	}
 
 	public void setActivity(Activity activity) {
-		Activity = activity;
+		this.activity = activity;
 	}
 
 	public Date getPresenceDate() {
-		return PresenceDate;
+		return presenceDate;
 	}
 
 	public void setPresenceDate(Date presenceDate) {
-		PresenceDate = presenceDate;
+		this.presenceDate = presenceDate;
 	}
 }

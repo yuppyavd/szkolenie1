@@ -11,33 +11,33 @@ public class ChildActivity {
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="Child_Id")
-	private Child Child;
+	@JoinColumn(name="child")
+	private Child child;
 	
 	@ManyToOne
-	@JoinColumn(name="Activity_Id")
-	private Activity Activity;
+	@JoinColumn(name="activity")
+	private Activity activity;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public Child getChild() {
-		return Child;
+		return child;
 	}
 
 	public void setChild(Child child) {
-		Child = child;
+		this.child = child;
 	}
 
 	public Activity getActivity() {
-		return Activity;
+		return activity;
 	}
 
 	public void setActivity(Activity activity) {
-		Activity = activity;
+		this.activity = activity;
 	}
 }
