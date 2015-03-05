@@ -34,7 +34,8 @@ public class GroupBeanImpl implements GroupBean {
 	@Override
 	@Transactional
 	public List<Child> getChildrenListFromGroup(Group group) {
-		List<Child> children = em.get().createQuery("SELECT c FROM Child c WHERE Group="+group.getId(), Child.class).getResultList();
+		List<Child> children = em.get().createQuery("SELECT c FROM Child c WHERE Group=:group", Child.class)
+				.setParameter("group", group.getId()).getResultList();
 		return children;
 	}
 

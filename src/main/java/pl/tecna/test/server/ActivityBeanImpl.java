@@ -35,7 +35,8 @@ public class ActivityBeanImpl implements ActivityBean {
 	@Override
 	@Transactional
 	public List<Activity> getActivitiesListFromDay(EnumDay day) {
-		List<Activity> activities = em.get().createQuery("SELECT Activity FROM ActivityDay WHERE WeekDay="+day.toString(), Activity.class).getResultList();
+		List<Activity> activities = em.get().createQuery("SELECT ad.Activity FROM ActivityDay ad WHERE WeekDay=:day", Activity.class)
+				.setParameter("day",  day.toString()).getResultList();
 		return activities;
 	}
 

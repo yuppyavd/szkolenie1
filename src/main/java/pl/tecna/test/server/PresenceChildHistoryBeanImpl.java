@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.Query;
 
 import org.apache.onami.persist.EntityManagerProvider;
 import org.apache.onami.persist.Transactional;
@@ -32,16 +33,20 @@ public class PresenceChildHistoryBeanImpl implements PresenceChildHistoryBean {
 	@Override
 	@Transactional
 	public List<Child> getPresentChildList(Activity activity, Date date) {
-		List<Child> children = em.get().createQuery("SELECT Child FROM PresenceChildHistory WHERE Activity="+activity.getId()
-				+" AND PresenceDate="+date+ "AND isPresent = 1", Child.class).getResultList();
+		Query query = em.get().createQuery("SELECT pch.Child FROM PresenceChildHistory pch WHERE Activity=:activityId AND PresenceDate=:date AND isPresent = 1", Child.class);
+		query.setParameter("activityId", activity.getId());
+		query.setParameter("date", date);
+		List<Child> children = query.getResultList();
 		return children;
 	}
 	
 	@Override
 	@Transactional
 	public List<Child> getAbsentChildList(Activity activity, Date date) {
-		List<Child> children = em.get().createQuery("SELECT Child FROM PresenceChildHistory WHERE Activity="+activity.getId()
-				+" AND PresenceDate="+date+ "AND isPresent = 0", Child.class).getResultList();
+		Query query = em.get().createQuery("SELECT pch.Child FROM PresenceChildHistory pch WHERE Activity=:activityId AND PresenceDate=:date AND isPresent = 0", Child.class);
+		query.setParameter("activityId", activity.getId());
+		query.setParameter("date", date);
+		List<Child> children = query.getResultList();
 		return children;
 	}
 
