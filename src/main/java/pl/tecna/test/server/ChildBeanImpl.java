@@ -1,5 +1,7 @@
 package pl.tecna.test.server;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.onami.persist.EntityManagerProvider;
@@ -21,5 +23,12 @@ public class ChildBeanImpl implements ChildBean {
 		child.setGroup(group);
 		em.get().persist(child);
 		return child;
+	}
+
+	@Override
+	@Transactional
+	public List<Child> getChildrenList() {
+		List<Child> children = em.get().createQuery("FROM Child", Child.class).getResultList();
+		return children;
 	}
 }

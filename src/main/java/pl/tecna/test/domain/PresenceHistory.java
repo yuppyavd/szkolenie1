@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class PresenceHistory {
@@ -21,6 +23,7 @@ public class PresenceHistory {
 	private Activity activity;
 	
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date presenceDate;
 	
 	public Long getId() {

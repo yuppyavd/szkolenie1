@@ -1,9 +1,11 @@
 package pl.tecna.test.domain;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,9 @@ public class Group {
 	
 	@Column
 	private String name;
+	
+	@OneToMany(mappedBy="Child")
+	private Set<Child> children;
 	
 	public Long getId() {
 		return id;
