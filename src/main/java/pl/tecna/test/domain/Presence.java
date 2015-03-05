@@ -1,5 +1,6 @@
 package pl.tecna.test.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,5 +20,36 @@ public class Presence {
 	
 	@ManyToOne
 	@JoinColumn
-	private Activity Activity;
+	private History History;
+	
+	@Column
+	private Boolean Attended;
+
+	public Child getChild() {
+		return Child;
+	}
+
+	public void setChild(Child child) {
+		Child = child;
+	}
+
+	public History getHistory() {
+		return History;
+	}
+
+	public void setHistory(History history) {
+		History = history;
+	}
+
+	public Boolean getAttended() {
+		return Attended;
+	}
+
+	public void setAttended(Boolean attended) {
+		Attended = attended;
+	}
+
+	public Long getId() {
+		return Id;
+	}
 }
