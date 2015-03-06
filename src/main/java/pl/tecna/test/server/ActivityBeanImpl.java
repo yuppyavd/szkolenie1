@@ -8,8 +8,6 @@ import org.apache.onami.persist.EntityManagerProvider;
 import org.apache.onami.persist.Transactional;
 
 import pl.tecna.test.domain.Activity;
-import pl.tecna.test.domain.Child;
-import pl.tecna.test.domain.EnumDay;
 
 public class ActivityBeanImpl implements ActivityBean {
 	
@@ -29,14 +27,6 @@ public class ActivityBeanImpl implements ActivityBean {
 	@Transactional
 	public List<Activity> getAllActivitiesList() {
 		List<Activity> activities = em.get().createQuery("FROM Activity", Activity.class).getResultList();
-		return activities;
-	}
-
-	@Override
-	@Transactional
-	public List<Activity> getActivitiesListFromDay(EnumDay day) {
-		List<Activity> activities = em.get().createQuery("SELECT ad.Activity FROM ActivityDay ad WHERE WeekDay=:day", Activity.class)
-				.setParameter("day",  day.toString()).getResultList();
 		return activities;
 	}
 

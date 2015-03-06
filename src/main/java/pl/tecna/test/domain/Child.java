@@ -18,7 +18,7 @@ public class Child {
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name="group")
+	@JoinColumn(name="cGroup")
 	private Group group;
 
 	public Long getId() {

@@ -29,8 +29,8 @@ public class ChildActivityBeanImpl implements ChildActivityBean {
 	@Override
 	@Transactional
 	public List<Child> getChildrenListInActivity(Activity activity) {
-		List<Child> children = em.get().createQuery("SELECT ca.Child FROM ChildActivity ca WHERE Activity=:activityId", Child.class)
-				.setParameter("activityId",  activity.getId()).getResultList();
+		List<Child> children = em.get().createQuery("SELECT CA.child FROM ChildActivity CA WHERE activity=:activity", Child.class)
+				.setParameter("activity",  activity).getResultList();
 		return children;
 	}
 

@@ -22,7 +22,7 @@ public class ActivityInstance {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="Activity_Id")
+	@JoinColumn(name="activity")
 	private Activity activity;
 	
 	@Column

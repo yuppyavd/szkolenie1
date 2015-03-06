@@ -33,9 +33,14 @@ public class PresenceChildHistoryBeanImpl implements PresenceChildHistoryBean {
 	@Override
 	@Transactional
 	public List<Child> getPresentChildList(Activity activity, Date date) {
-		Query query = em.get().createQuery("SELECT pch.Child FROM PresenceChildHistory pch WHERE Activity=:activityId AND PresenceDate=:date AND isPresent = 1", Child.class);
-		query.setParameter("activityId", activity.getId());
+		Query query = em.get().createQuery("SELECT PH FROM PresenceHistory PH WHERE activity=:activity AND presenceDate=:date", PresenceHistory.class);
+		query.setParameter("activity", activity);
 		query.setParameter("date", date);
+		query.setMaxResults(1);
+		PresenceHistory presenceHistory = (PresenceHistory) query.getSingleResult();
+		
+		query = em.get().createQuery("SELECT PCH.child FROM PresenceChildHistory PCH WHERE presenceHistory=:presenceHistory AND isPresent = 1", Child.class);
+		query.setParameter("presenceHistory", presenceHistory);
 		List<Child> children = query.getResultList();
 		return children;
 	}
@@ -43,9 +48,14 @@ public class PresenceChildHistoryBeanImpl implements PresenceChildHistoryBean {
 	@Override
 	@Transactional
 	public List<Child> getAbsentChildList(Activity activity, Date date) {
-		Query query = em.get().createQuery("SELECT pch.Child FROM PresenceChildHistory pch WHERE Activity=:activityId AND PresenceDate=:date AND isPresent = 0", Child.class);
-		query.setParameter("activityId", activity.getId());
+		Query query = em.get().createQuery("SELECT PH FROM PresenceHistory PH WHERE activity=:activity AND presenceDate=:date", PresenceHistory.class);
+		query.setParameter("activity", activity);
 		query.setParameter("date", date);
+		query.setMaxResults(1);
+		PresenceHistory presenceHistory = (PresenceHistory) query.getSingleResult();
+		
+		query = em.get().createQuery("SELECT PCH.child FROM PresenceChildHistory PCH WHERE presenceHistory=:presenceHistory AND isPresent = 0", Child.class);
+		query.setParameter("presenceHistory", presenceHistory.getId());
 		List<Child> children = query.getResultList();
 		return children;
 	}

@@ -19,7 +19,7 @@ public class Group {
 	@Column
 	private String name;
 	
-	@OneToMany(mappedBy="Child")
+	@OneToMany(mappedBy="group")
 	private Set<Child> children;
 	
 	public Long getId() {
@@ -32,5 +32,13 @@ public class Group {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<Child> getChildren() {
+		return children;
+	}
+
+	public void setChildren(Set<Child> children) {
+		this.children = children;
 	}
 }

@@ -1,9 +1,11 @@
 package pl.tecna.test.server;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.Query;
 
 import org.apache.onami.persist.EntityManagerProvider;
 import org.apache.onami.persist.Transactional;
@@ -31,7 +33,7 @@ public class ActivityInstanceBeanImpl implements ActivityInstanceBean {
 	@Override
 	@Transactional
 	public List<Activity> getActivitiesListFromDay(EnumDay day) {
-		List<Activity> activities = em.get().createQuery("SELECT ai.Activity FROM ActivityInstance ai WHERE WeekDay=:day", Activity.class)
+		List<Activity> activities = em.get().createQuery("SELECT AI.activity FROM ActivityInstance AI WHERE WeekDay=:day", Activity.class)
 				.setParameter("day",  day.toString()).getResultList();
 		return activities;
 	}
