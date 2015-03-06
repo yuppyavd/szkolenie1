@@ -20,11 +20,11 @@ public class ActivityInstance {
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn
-	private Activity Activity;
+	private Activity activity;
 	
 	public DayOfWeek getDayOfWeek() {
 		return dayOfWeek;
@@ -40,26 +40,26 @@ public class ActivityInstance {
 	
 	@Column
 	@Temporal(TemporalType.TIME)
-	private Date Hour;
+	private Date hour;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public Activity getActivity() {
-		return Activity;
+		return activity;
 	}
 
 	public void setActivity(Activity activity) {
-		Activity = activity;
+		this.activity = activity;
 	}
 
 	public Date getHour() {
-		return Hour;
+		return hour;
 	}
 
 	public void setHour(Date hour) {
-		Hour = hour;
+		this.hour = hour;
 	}
 
 	

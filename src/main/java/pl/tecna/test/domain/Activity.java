@@ -9,20 +9,20 @@ import javax.persistence.Id;
 public class Activity {
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@Column
-	private String Name;
+	private String name;
 	
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 }

@@ -14,32 +14,32 @@ public class History {
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn
-	private Activity Activity;
+	private Activity activity;
 	
 	@Column
-	private Date ActivityDate;
+	private Date activityDate;
 
 	public Activity getActivity() {
-		return Activity;
+		return activity;
 	}
 
 	public void setActivity(Activity activity) {
-		Activity = activity;
+		this.activity = activity;
 	}
 
 	public Date getActivityDate() {
-		return ActivityDate;
+		return activityDate;
 	}
 
 	public void setActivityDate(Date activityDate) {
-		ActivityDate = activityDate;
+		this.activityDate = activityDate;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 }

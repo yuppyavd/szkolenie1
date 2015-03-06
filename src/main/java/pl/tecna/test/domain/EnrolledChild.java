@@ -1,6 +1,5 @@
 package pl.tecna.test.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Presence {
+public class EnrolledChild {
 
 	@Id
 	@GeneratedValue
@@ -20,10 +19,7 @@ public class Presence {
 	
 	@ManyToOne
 	@JoinColumn
-	private History history;
-	
-	@Column
-	private Boolean attended;
+	private Activity activity;
 
 	public Child getChild() {
 		return child;
@@ -33,20 +29,12 @@ public class Presence {
 		this.child = child;
 	}
 
-	public History getHistory() {
-		return history;
+	public Activity getActivity() {
+		return activity;
 	}
 
-	public void setHistory(History history) {
-		this.history = history;
-	}
-
-	public Boolean getAttended() {
-		return attended;
-	}
-
-	public void setAttended(Boolean attended) {
-		this.attended = attended;
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	public Long getId() {
