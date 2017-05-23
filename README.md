@@ -9,6 +9,7 @@
 ## Materiały
 
 - [Git Book](http://git-scm.com/book/pl/v1/Pierwsze-kroki-Wprowadzenie-do-kontroli-wersji)
+- [GWT Showcase](http://samples.gwtproject.org/samples/Showcase/Showcase.html)
 
 ## Do realizacji
 
